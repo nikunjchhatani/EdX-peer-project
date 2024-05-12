@@ -39,3 +39,13 @@ exports.searchByAuthor = (author) => {
       .catch(error => reject(error));
   });
 };
+
+
+//Task 13
+exports.searchByTitle = (title) => {
+  return new Promise((resolve, reject) => {
+    axios.get(`http://localhost:3000/api/books/title/${title}`)
+      .then(response => resolve(response.data))
+      .catch(error => reject(error));
+  });
+};
