@@ -20,3 +20,12 @@ exports.getAllBooks = async () => {
   }
 };
 
+
+//Task 11
+exports.searchByISBN = (isbn) => {
+  return new Promise((resolve, reject) => {
+    axios.get(`http://localhost:3000/api/books/isbn/${isbn}`)
+      .then(response => resolve(response.data))
+      .catch(error => reject(error));
+  });
+};
