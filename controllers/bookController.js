@@ -33,3 +33,15 @@ exports.getBooksByAuthor = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+
+
+//Task 4
+exports.getBooksByTitle = async (req, res) => {
+  const title = req.params.title;
+  try {
+    const response = await axios.get(`http://localhost:3000/api/books/title/${title}`);
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
