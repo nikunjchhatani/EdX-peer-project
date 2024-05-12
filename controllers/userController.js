@@ -9,3 +9,14 @@ exports.registerUser = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+
+
+//Task 7
+exports.loginUser = async (req, res) => {
+    try {
+      const response = await axios.post('http://localhost:3000/api/users/login', req.body);
+      res.json(response.data);
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  };
