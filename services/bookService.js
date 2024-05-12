@@ -29,3 +29,13 @@ exports.searchByISBN = (isbn) => {
       .catch(error => reject(error));
   });
 };
+
+
+//Task 12
+exports.searchByAuthor = (author) => {
+  return new Promise((resolve, reject) => {
+    axios.get(`http://localhost:3000/api/books/author/${author}`)
+      .then(response => resolve(response.data))
+      .catch(error => reject(error));
+  });
+};
