@@ -57,3 +57,14 @@ exports.getBookReview = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+
+
+//Task 8
+exports.addBookReview = async (req, res) => {
+  try {
+    const response = await axios.post('http://localhost:3000/api/books/review', req.body);
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
