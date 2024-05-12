@@ -45,3 +45,15 @@ exports.getBooksByTitle = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+
+
+//Task 5
+exports.getBookReview = async (req, res) => {
+  const isbn = req.params.isbn;
+  try {
+    const response = await axios.get(`http://localhost:3000/api/books/review/${isbn}`);
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
