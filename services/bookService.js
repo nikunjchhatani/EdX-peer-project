@@ -8,3 +8,14 @@ exports.getBookList = async () => {
     throw error;
   }
 };
+
+
+//Task 10
+exports.getAllBooks = async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/api/books');
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
