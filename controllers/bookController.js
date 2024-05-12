@@ -68,3 +68,15 @@ exports.addBookReview = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+
+
+//Task 9
+exports.deleteBookReview = async (req, res) => {
+  const reviewId = req.params.reviewId;
+  try {
+    const response = await axios.delete(`http://localhost:3000/api/books/review/${reviewId}`);
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
